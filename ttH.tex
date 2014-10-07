@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{tth_diag} 
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+\fmfleft{i1,i2}\fmflabel{{\Large $g$}}{i1}\fmflabel{{\Large $g$}}{i2}
+\fmfright{o1,o2,o3,o4} \fmflabel{{\Large $b$}}{o1} \fmflabel{{\Large $W$}}{o2}\fmflabel{{\Large $H$}}{o3}\fmflabel{{\Large $W$}}{o4}
+\fmfright{o5}\fmflabel{\Large $\bar{b}$}{o5}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+\fmf{gluon}{i2,v2}
+\fmf{fermion,label={\Large $\bar{t}$},label.side=right}{v7,v2}
+\fmf{fermion}{o5,v7}
+\fmf{boson}{v7,o4}
+\fmf{gluon}{i1,v1}
+\fmf{fermion,label={\Large $t$},label.side=right}{v1,v4}
+\fmf{fermion}{v4,o1}
+\fmf{fermion}{v6,v1}
+\fmf{fermion}{v2,v6}
+\fmf{dashes}{v6,o3} %questo è l'Higgs
+%\fmf{photon}{v6,o3}%giusto per allungare un po' la gamba del fotone
+\fmf{boson}{v4,o2} 
+
+
+%\fmfv{decor.shape=circle,decor.filled=full, decor.size=3thick}{v4}%cosi' setti pure la grandezza del blob
+
+\fmffreeze%calcola posizioni dei vertici
+\fmfforce{0.1w,.055h}{i1}
+\fmfforce{0.1w,0.95h}{i2}
+\fmfforce{.5w,0.74h}{v2}
+\fmfforce{.5w,0.26h}{v1}
+\fmfforce{.7w,0.1h}{v3}
+\fmfforce{.83w,0.16h}{v4}
+\fmfforce{.83w,0.84h}{v7}
+\fmfforce{0.93w,0h}{o1}
+\fmfforce{.5w,.525h}{v6}
+\fmfforce{.83w,.525h}{v5}
+\fmfforce{.78w,.525h}{o3}
+\fmfforce{.98w,.665h}{o4}
+\fmfforce{0.93w,1h}{o5}
+\fmfforce{0.98w,0.385h}{o2}
+
+\end{fmfchar*}
+\end{fmffile}
+
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{lep_diag} 
+\begin{fmfchar*}(40,25)%(x.y) sono la grandezza del diagramma
+\fmfleft{i1,i2} 
+\fmfright{o1,o2,o3,o4,o5,o6,o7,o8,o9,o10} \fmflabel{\boldmath\tiny$\gamma$}{o1} \fmflabel{\boldmath\tiny$\gamma$}{o2}\fmflabel{\tiny$b$}{o3}\fmflabel{\tiny$q$}{o4}
+\fmflabel{\tiny$\bar{q}$}{o5}\fmflabel{\tiny$b$}{o6}\fmflabel{\boldmath\tiny$l$}{o7}\fmflabel{\tiny$\nu$}{o8}\fmflabel{\tiny$b$}{o9}
+\fmflabel{\tiny$\bar{b}$}{o10}
+
+%comincia a chiudere le linee e costruire il diagramma
+\fmf{gluon}{i1,v1,i2} 
+\fmf{gluon}{v1,v2} 
+\fmf{plain,lab=$T$,lab.side=right}{v3,v2}
+\fmf{plain,lab=$T$,lab.side=right}{v2,v4} 
+
+%infine piazzo le linee esterne
+\fmf{plain}{p1,v3}
+\fmfv{label=$t$,label.dist=0.02w,label.angle=-40}{v3} %FATTO
+\fmf{dashes}{v3,pHiggs}
+\fmf{dashes,label=\tiny$H$,label.side=left}{pHiggs,p2}%questo è Higgs
+
+\fmf{plain}{v4,p3}% questo è il top
+\fmfv{label=$t$,label.dist=0.02w,label.angle=40}{v4}
+\fmf{dashes}{v4,pHiggs2}
+\fmf{dashes,label=\tiny$H$,label.side=right}{pHiggs2,p4}% questo è l'Higgs
+
+
+\fmf{photon}{o1,pphot}
+\fmf{photon}{pphot,p4}%fotone
+\fmf{photon}{p4,pphot2}
+\fmf{photon}{pphot2,o2}%fotone
+
+\fmf{plain}{p3,o3}%b
+\fmf{plain}{p3,pw}%W
+\fmfv{lab=\tiny$W$,lab.dist=0.01w,l.a=120}{pw}%sotto
+\fmf{plain}{o5,pw,o4}%q,q
+
+\fmf{plain}{p1,o6}
+\fmf{plain}{p1,pw2}
+
+\fmf{plain}{o8,pw2,o7}
+\fmfv{lab=\tiny$W$,lab.dist=0.02w,l.a=180}{pw2} %sopra
+
+\fmf{plain}{o10,p2,o9}
+
+
+\fmfdot{p4}% questo decide quali vertici abbiamo un punto marcato
+\end{fmfchar*}
+\end{fmffile}
+
+
+
+
+
+
+
+
+
+\end{document}

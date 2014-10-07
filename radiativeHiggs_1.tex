@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{radiativeHiggs_1_diag} 
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+\fmfleft{i}
+\fmfright{o}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+
+
+
+\fmf{dashes,label={\Large$h$}}{i,v1}
+\fmf{dashes,label={\Large$h$}}{v2,o}
+\fmf{fermion,left,tension=0.4,label={\Large t}}{v1,v2,v1}
+\fmfdot{v1,v2}
+
+\end{fmfchar*}
+\end{fmffile}
+
+
+\end{document}
+
+

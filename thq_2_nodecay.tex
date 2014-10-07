@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{thq_2_nodecay_diag} 
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+\fmfleft{i1,i2}\fmflabel{{\Large $b$}}{i1}\fmflabel{{\Large $q$}}{i2}
+\fmfright{o1,o2,o3} \fmflabel{{\Large $b$}}{o1} \fmflabel{{\Large $W$}}{o2}\fmflabel{{\Large $H$}}{o3}
+\fmflabel{{\Large $q^{'}$}}{o5}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+\fmf{fermion}{i2,v2,o5}
+\fmf{fermion}{i1,v1}
+\fmf{fermion,label={\Large $t$},label.side=right}{v1,v4}
+\fmf{fermion}{v4,o1}
+\fmf{boson,label={\Large $W$},label.side=right}{v1,v6}
+\fmf{boson,label={\Large $W$},label.side=right}{v6,v2}
+\fmf{dashes}{v6,o3} %questo è l'Higgs
+%\fmf{photon}{v6,o3}%giusto per allungare un po' la gamba del fotone
+\fmf{boson}{v4,o2} 
+
+
+%\fmfv{decor.shape=circle,decor.filled=full, decor.size=3thick}{v4}%cosi' setti pure la grandezza del blob
+
+\fmffreeze%calcola posizioni dei vertici
+\fmfforce{0.1w,0.15h}{i1}
+\fmfforce{0.1w,1h}{i2}
+\fmfforce{.5w,0.8h}{v2}
+\fmfforce{.5w,0.35h}{v1}
+\fmfforce{.7w,0.15h}{v3}
+\fmfforce{.83w,0.15h}{v4}
+\fmfforce{0.93w,0.02h}{o1}
+\fmfforce{.5w,.575h}{v6}
+\fmfforce{.83w,.575h}{v5}
+\fmfforce{.78w,.575h}{o3}
+\fmfforce{.98w,.715h}{o4}
+\fmfforce{0.93w,1h}{o5}
+\fmfforce{0.96w,0.25h}{o2}
+
+\end{fmfchar*}
+\end{fmffile}
+
+\end{document}

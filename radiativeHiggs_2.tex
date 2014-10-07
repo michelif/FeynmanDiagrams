@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{radiativeHiggs_2_diag} 
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+\fmfleft{i,p1}
+\fmfright{o,p2}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+
+
+
+\fmf{dashes,label={\Large$h$}}{i,v2}
+\fmf{dashes,label={\Large$h$}}{v2,o}
+\fmffreeze%calcola posizioni dei vertici
+
+\fmf{phantom}{p1,vp1}
+\fmf{phantom}{vp2,p2}
+\fmf{dashes,left,tension=0.4,label={\Large $h$}}{vp1,vp2}
+\fmf{dashes,left,tension=0.4}{vp2,vp1}
+
+\fmfforce{0.5w,0.3h}{v2}
+\fmfforce{0.1w,0.3h}{i}
+\fmfforce{0.9w,0.3h}{o}
+\fmfforce{0.1w,0.55h}{p1}
+\fmfforce{0.9w,0.55h}{p2}
+
+\end{fmfchar*}
+\end{fmffile}
+
+
+\end{document}
+
+

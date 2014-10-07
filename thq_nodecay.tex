@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{thq_nodecay_diag} 
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+\fmfleft{i1,i2}\fmflabel{{\Large $b$}}{i1}\fmflabel{{\Large $q$}}{i2}
+\fmfright{o1,o2,o3,o4,o5} \fmflabel{{\Large $b$}}{o1} \fmflabel{{\Large $W$}}{o2}\fmflabel{{\Large $H$}}{o3}
+\fmflabel{{\Large $q^{'}$}}{o5}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+%\boldmath$b$
+%comincia a chiudere le linee e costruire il diagramma
+%\fmf{fermion}{i2,v2,o5}
+%\fmf{fermion}{i1,v1,v3}
+%\fmf{fermion,label=$t$,label.side=right}{v3,v4}
+%\fmf{fermion}{v4,o1}
+%\fmf{boson,label=$W$,label.side=right}{v1,v2}
+%\fmf{dashes,label=$H$,label.side=left}{v3,v5} %questo è l'Higgs
+%\fmf{photon}{o4,v5}
+%\fmf{photon}{v5,v6}
+%\fmf{photon}{v6,o3}%giusto per allungare un po' la gamba del fotone
+%\fmf{boson}{v4,o2} 
+%
+%\fmfdot{v5}% questo decide quali vertici abbiamo un punto marcato
+
+\fmf{fermion}{i2,v2,o5}
+%\fmf{plain}{i2,v2,v7}
+%\fmf{fermion}{v7,o5}
+\fmf{fermion}{i1,v1}
+\fmf{fermion,label={\Large $t$}}{v1,v3}
+\fmf{fermion,label={\Large $t$},label.side=right}{v3,v4}
+\fmf{fermion}{v4,o1}
+\fmf{boson,label={\Large $W$},label.side=right}{v1,v2}
+\fmf{dashes,label.side=left}{v3,o3} %questo è l'Higgs
+%\fmf{photon}{v6,o3}%giusto per allungare un po' la gamba del fotone
+\fmf{boson}{v4,o2} 
+
+%\fmfdot{v5}% questo decide quali vertici abbiamo un punto marcato
+
+\fmffreeze%calcola posizioni dei vertici
+%\fmfshift{10,0}{v1}%shifta posizioni dei vertici, c'e' anche force per forzare la posizione
+
+\fmfforce{0.1w,0.15h}{i1}
+\fmfforce{0.1w,1h}{i2}
+\fmfforce{.5w,0.8h}{v2}
+\fmfforce{.5w,0.4h}{v1}
+\fmfforce{.7w,0.4h}{v3}
+\fmfforce{.98w,.59h}{o3}
+\fmfforce{0.92w,0h}{o1}
+
+\end{fmfchar*}
+\end{fmffile}
+
+\end{document}

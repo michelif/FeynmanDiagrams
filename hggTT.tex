@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{feynmp}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{hggTT_diag} %Creating a diagram called ``my_process_diag''
+\begin{fmfchar*}(80,50)\fmfpen{thick}%(x.y) sono la grandezza del diagramma
+%Particelle stato iniziale(i) e finale (o)
+\fmfleft{i1} 
+\fmfright{o1,o2} \fmflabel{{\Large$\gamma$}}{o1} \fmflabel{{\Large$\gamma$}}{o2}
+\fmfset{arrow_ang}{13}
+
+\fmf{dashes,label={\Large$H$}}{i1,v1} 
+\fmf{fermion,label={\Large $t$},label.side=right}{v2,v1}
+\fmf{fermion,label={\Large $t$},label.side=right}{v1,v3}
+\fmf{boson}{v2,o2}        
+\fmf{boson}{v3,o1}        
+\fmf{fermion,label={\Large $t$},label.side=right}{v3,v2}
+
+\fmffreeze
+\fmfforce{0.4w,0.5h}{v1}
+\fmfforce{0.75w,0.75h}{v2}
+\fmfforce{0.75w,0.25h}{v3}
+
+%\fmfdot{v1,v2}% questo decide quali vertici abbiamo un punto marcato
+\end{fmfchar*}
+\end{fmffile}
+
+
+%\fmf{plain,label=$\bar{T}$,label.side=left}{vx,v2} %questa linea in piÃ¹ serve per fare piÃ¹ lunga la freccia e piazzare il label
+%%n.b: destra e sinistra sono stabiliti rispetto al senso della freccia
+%\fmf{plain,label=$T$,label.side=left}{v2,vy} %questa linea in piÃ¹ serve per fare piÃ¹ lunga la freccia e piazzare il label
+%\fmf{fermion}{vy,v4} %% questo Ãš il T$
+
+%infine piazzo le linee esterne
+%\fmf{fermion}{o1,v3}%questo Ãš anti top
+%\fmf{dashes}{v3,o2}%questo Ãš Higgs
+
+%\fmf{fermion}{v4,o3}% questo Ãš il top
+%\fmf{dashes}{v4,o4}% questo Ãš l'Higgs
+
+
+
+
+
+
+
+
+\end{document}

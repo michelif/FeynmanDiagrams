@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{feynmp}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{my_process_new_diag} %Creating a diagram called "my_process_new_diag"
+\begin{fmfchar*}(50,35)%(x.y) sono la grandezza del diagramma
+%Particelle stato iniziale(i) e finale (o)
+\fmfleft{i1,i2} %particelle nello stato iniziale {id1,id2,....}
+\fmfright{o1,o2,o3,o4,o5,o6} \fmflabel{$\gamma$}{o1} \fmflabel{$\gamma$}{o2}\fmflabel{$\bar{t}$}{o3}\fmflabel{$t$}{o4} 
+\fmflabel{$b$}{o5} \fmflabel{$\bar{b}$}{o6} 
+\fmfset{arrow_ang}{10}% il default dello spessore delle frecce è 15 ma è troppo grosso
+% ||^ particelle stato finale, con label. Potresti farlo anche al momento della costruzione delle linee, ma 
+% in questo modo i label sono molto meglio piazzati
+
+%comincia a chiudere le linee e costruire il diagramma
+\fmf{gluon}{i1,v1,i2} %c'è un gluone che da i1 passa per il vertice v1 e va in i2 (quindi una forma a > nello stato iniziale
+\fmf{gluon}{v1,v2} %c'è un gluone che fa il propagatore tra i vertici v1 e v2
+%\fmf{fermion}{v3,vx}% il senso della freccia è dato dall'ordine dei vertici 
+\fmf{fermion,label=\tiny$\bar{T}$,label.side=left}{v3,v2} %questa linea in più serve per fare più lunga la freccia e piazzare il label
+%n.b: destra e sinistra sono stabiliti rispetto al senso della freccia
+\fmf{fermion,label=\tiny$T$,label.side=left}{v2,v4} %questa linea in più serve per fare più lunga la freccia e piazzare il label
+%\fmf{fermion}{vy,v4} %% questo è il T$
+
+%infine piazzo le linee esterne
+\fmf{fermion}{o3,v3}%questo è anti top
+\fmf{dashes,label=\tiny$H$,label.side=right}{v3,h1}%questo è Higgs
+
+\fmf{photon}{o1,pphot}
+\fmf{photon}{pphot,h1}%fotone
+\fmf{photon}{h1,pphot2}
+\fmf{photon}{pphot2,o2}%fotone
+
+\fmf{fermion}{v4,o4}% questo è il top
+%\fmf{dashes}{v4,h_int}
+\fmf{dashes,label=\tiny$H$,label.side=left}{v4,h2}% questo è l'Higgs
+
+\fmf{plain}{o5,h2,o6}
+%\fmf{plain}{vf,o6}
+%\fmfdot{v1,v2}% questo decide quali vertici abbiamo un punto marcato
+\end{fmfchar*}
+\end{fmffile}
+
+
+
+
+
+
+
+
+
+\end{document}

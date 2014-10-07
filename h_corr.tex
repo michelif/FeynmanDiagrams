@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{feynmp}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{h_corr_diag} %Creating a diagram called "my_process_diag"
+\begin{fmfchar*}(40,25)%(x.y) sono la grandezza del diagramma
+%Particelle stato iniziale(i) e finale (o)
+\fmfleft{i1} \fmflabel{$H$}{i1}
+\fmfright{o1} \fmflabel{$H$}{o1}
+
+\fmf{dashes}{i1,v1} 
+\fmf{fermion,left,tension=0.2,tag=1,label=$t$,label.side=left}{v1,v2} 
+\fmf{fermion,left,tension=0.2,tag=2,label=$t$,label.side=left}{v2,v1}
+\fmf{dashes}{v2,o1}
+\fmfposition
+
+
+%\fmfdot{v1,v2}% questo decide quali vertici abbiamo un punto marcato
+\end{fmfchar*}
+\end{fmffile}
+
+
+%\fmf{plain,label=$\bar{T}$,label.side=left}{vx,v2} %questa linea in più serve per fare più lunga la freccia e piazzare il label
+%%n.b: destra e sinistra sono stabiliti rispetto al senso della freccia
+%\fmf{plain,label=$T$,label.side=left}{v2,vy} %questa linea in più serve per fare più lunga la freccia e piazzare il label
+%\fmf{fermion}{vy,v4} %% questo è il T$
+
+%infine piazzo le linee esterne
+%\fmf{fermion}{o1,v3}%questo è anti top
+%\fmf{dashes}{v3,o2}%questo è Higgs
+
+%\fmf{fermion}{v4,o3}% questo è il top
+%\fmf{dashes}{v4,o4}% questo è l'Higgs
+
+
+
+
+
+
+
+
+\end{document}

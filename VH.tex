@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+
+\begin{fmffile}{VH_diag}
+\begin{fmfchar*}(80,50)\fmfpen{thick}
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{fermion, label={\Large $q$}}{i1,v1}
+\fmf{fermion, label={\Large $q'$}}{v1,i2}
+\fmf{boson, label={\Large $W/Z$}}{v1,v2,o1}
+\fmf{scalar, label={\Large $H$}}{v2,o2}
+
+\fmffreeze
+
+\end{fmfchar*}
+\end{fmffile}
+
+\end{document}

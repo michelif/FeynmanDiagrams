@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{color}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+
+\begin{fmffile}{ggH_diag}
+\begin{fmfchar*}(90,50)\fmfpen{thick}
+\unitlength = 1mm
+\fmfset{arrow_ang}{13} %il default dello spessore delle frecce è 15 ma è troppo grosso
+
+\fmfleft{i1,i2}
+\fmfright{o1,o2,o3}
+\fmf{phantom}{i1,v1,o1}
+\fmf{phantom}{i2,v2,o3}
+\fmf{gluon, label={\Large $g$}, label.dist=+12.0}{i1,v1}
+\fmf{gluon, label={\Large $g$}, label.dist=+12.0}{i2,v2}
+\fmf{fermion, label={\Large $t$}, label.dist=-12.0,label.side=right}{v1,v2,v3,v1}
+\fmf{scalar, label={\Large $H$}}{v3,o2}
+\fmffreeze
+
+\fmfforce{0.1w,.1h}{i1}
+\fmfforce{0.1w,.9h}{i2}
+
+\end{fmfchar*}
+\end{fmffile}
+
+\end{document}

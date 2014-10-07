@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{feynmp}
+\pagestyle{empty} %Takes away pagenumbers etc.
+\begin{document}
+
+\unitlength = 1mm
+\begin{fmffile}{prod_singola_diag}
+\begin{fmfchar*}(40,25)%(x.y) sono la grandezza del diagramma
+%Particelle stato iniziale(i) e finale (o)
+\fmfleft{i1,i2} \fmflabel{$q$}{i2}\fmflabel{$g$}{i1}
+\fmfright{o1,o2,o3} \fmflabel{$\bar{t}$}{o1} \fmflabel{$T$}{o2} \fmflabel{$q$}{o3} %la pecetta vecchia su o3 era q'
+
+\fmf{gluon}{i1,v1}
+\fmf{plain}{i2,v3,o3}
+\fmf{boson, label=$Z$,label.side=left}{v3,v2} %la pecetta vecchia era W
+\fmf{plain}{o2,v2}
+\fmf{plain,label=$t$,label.side=left}{v2,v1}
+\fmf{plain}{v1,o1}
+
+
+%\fmfdot{v1,v2}% questo decide quali vertici abbiamo un punto marcato
+\end{fmfchar*}
+\end{fmffile}
+
+
+
+
+
+
+
+
+
+\end{document}
